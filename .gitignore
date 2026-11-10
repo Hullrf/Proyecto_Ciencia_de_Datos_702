@@ -1,0 +1,7 @@
+data/raw/
+data/interim/
+.autopilot/
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+*.jpg
