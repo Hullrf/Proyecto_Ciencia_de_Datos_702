@@ -1,0 +1,17 @@
+feature,corr,auc,missing,decision,reason
+diff_maps_played,0.1878203462391586,0.6510088387764179,0.0,conservar,Mejor AUC univariado y mayor importancia por permutación; nunca falta
+diff_round_diff,0.26783016338994103,0.6502975741578684,0.39952399841332803,conservar,"Mayor correlación con el objetivo; mide el margen, no solo el resultado"
+diff_winrate,0.2526017228253287,0.6429861460253616,0.39952399841332803,conservar,Señal alta; medida directa de qué tan seguido gana el equipo
+diff_acs,0.24688032115343572,0.6385654771318882,0.40007933359777864,conservar,Mejor indicador del nivel individual; buena cobertura
+diff_maps_played_map,0.182250257805694,0.636735996873613,0.0,descartar,Redundante con diff_maps_played (r = 0.77) y con menos señal
+diff_adr,0.2305774958478414,0.6278925797371184,0.4057913526378421,descartar,"Redundante con diff_acs (r = 0.94), con menos señal y más faltantes"
+diff_kast,0.22741120884127206,0.6237886954578895,0.5483538278460928,conservar,Mide consistencia del equipo ronda a ronda; se prefiere al rating
+diff_rating,0.22055279992168103,0.6189070469616397,0.5483538278460928,descartar,Redundante con diff_kast (r = 0.95); el rating es una fórmula derivada
+h2h_winrate_a,0.20040698986488714,0.6142666003351488,0.8101150337167791,conservar,"Poca cobertura, pero aporta información propia del enfrentamiento"
+diff_fkd,0.19942603759707778,0.6129202477283545,0.4057913526378421,conservar,Duelos de apertura: aspecto táctico distinto al resto
+diff_winrate_recent,0.19027346417166138,0.6042047755711971,0.39952399841332803,conservar,Única variable de forma reciente; capta rachas que el historial completo diluye
+diff_winrate_map,0.14222165037868206,0.5771217298742816,0.529234430781436,conservar,Única variable específica del mapa que se juega
+diff_pistol,0.1271066886043802,0.5734972749812485,0.5479571598571995,descartar,"Señal baja (AUC 0.57), 55 % de faltantes y sin aporte en el modelo"
+a_picked_map,0.027115677196120045,0.5143422414336901,0.7160650535501785,conservar,Señal pequeña pero legítima y conocida antes del partido; completa desde 2024
+min_maps_played,-0.0005084119368732176,0.5039488057151473,0.0,conservar,"No indica quién gana, pero dice cuánta evidencia respalda a las demás variables"
+h2h_games,-0.0018497671304644509,0.4996143720325118,0.0,descartar,Sin señal propia; el faltante de h2h_winrate_a ya indica que no hay enfrentamientos previos
