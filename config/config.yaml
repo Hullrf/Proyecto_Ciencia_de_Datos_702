@@ -30,3 +30,4 @@ features:
 - h2h_winrate_a
 - a_picked_map
 - min_maps_played
+min_train_history: 30
