@@ -1,0 +1,9 @@
+seed: 42
+years: [2021, 2022, 2023, 2024, 2025, 2026]
+split:
+  train: [2021, 2022, 2023, 2024]
+  val: [2025]
+  test: [2026]
+recent_window: 10
+target: team_a_win
+features: []   # la llena el cuadernillo 04
