@@ -1,0 +1,33 @@
+seed: 42
+years:
+- 2021
+- 2022
+- 2023
+- 2024
+- 2025
+- 2026
+split:
+  train:
+  - 2021
+  - 2022
+  - 2023
+  - 2024
+  val:
+  - 2025
+  test:
+  - 2026
+recent_window: 10
+target: team_a_win
+features:
+- diff_winrate
+- diff_winrate_recent
+- diff_winrate_map
+- diff_maps_played
+- diff_round_diff
+- diff_acs
+- diff_kast
+- diff_fkd
+- h2h_winrate_a
+- a_picked_map
+- min_maps_played
+min_train_history: 30
