@@ -167,3 +167,20 @@ realmente quedó tras los cuadernillos 03 y 04.
 Ventanas de historial (N), tratamiento exacto de nulos, hiperparámetros, estilo de gráficos,
 cómo se generan y ejecutan los `.ipynb`, y recortar variables que los datos no soporten
 (explicándolo en el cuadernillo correspondiente).
+
+## 13. Cambios durante la implementación
+
+Decisiones tomadas al ver los datos, que ajustan lo escrito arriba:
+
+- **Orden temporal (sección 4):** los IDs ordenan años y etapas, pero no los partidos dentro
+  de una etapa (las casillas de un cuadro reciben su ID antes de jugarse). El historial de un
+  equipo usa solo mapas de **etapas anteriores** (`stage_block`). Ver cuadernillo 01.
+- **Limpieza:** además de duplicados, empates y mapas sin ID, se eliminan mapas incompletos
+  (ganador con menos de 13 rondas) y partidos de exhibición.
+- **Variables (sección 7):** de 16 candidatas quedan 11; `diff_pistol` se descartó por baja
+  cobertura y señal. Ver cuadernillo 04.
+- **Entrenamiento (sección 8):** los modelos se entrenan solo con mapas donde ambos equipos
+  tienen 30 o más mapas previos (`min_train_history`), porque entrenar con todos los
+  clasificatorios de 2021–2022 deja los modelos mal calibrados. La evaluación no se filtra.
+  Se añadió una tercera línea base (logística de una variable). Ver cuadernillo 05.
+- **Precisión obtenida:** 57.1 % en prueba, por debajo del 60–65 % estimado al inicio.
