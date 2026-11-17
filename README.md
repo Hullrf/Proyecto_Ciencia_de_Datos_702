@@ -36,7 +36,8 @@ equipos profesionales con estadísticas históricas da una ventaja real pero mod
 │   ├── Explicacion_del_codigo.docx   Por qué y cómo funciona cada fragmento de código
 │   ├── explicacion_del_codigo.md     Misma explicación en Markdown
 │   └── variables_y_objetivo.md       Objetivo final y justificación de cada variable
-├── notebooks/                Cuadernillos 00 a 08
+├── models/                   Cuadernillos de los modelos (05 a 07)
+├── notebooks/                Cuadernillos 00 a 04 y 08
 ├── reports/
 │   ├── figures/              Todos los gráficos generados
 │   └── tables/               Tablas de resultados
@@ -54,9 +55,9 @@ equipos profesionales con estadísticas históricas da una ventaja real pero mod
 | `02_analisis_exploratorio` | Entender el objetivo y sus posibles predictores | Team A gana más por cómo la web ordena los equipos; el winrate previo sí predice |
 | `03_ingenieria_de_variables` | Construir variables históricas sin fuga de datos | Las estadísticas del propio mapa "aciertan" el 94 %; las históricas dan una señal real pero pequeña |
 | `04_seleccion_de_variables` | Separar los datos por año y decidir las variables | Entrenamiento 2021–2024, validación 2025, prueba 2026; 11 de 16 variables |
-| `05_modelo_regresion_logistica` | Primer modelo y cómo se mide | Entrenar con partidos no comparables arruina las probabilidades; se entrena con mapas entre equipos con 30+ mapas previos |
-| `06_modelo_random_forest` | Segundo modelo | Captar relaciones complejas no mejora a la logística |
-| `07_modelo_gradient_boosting` | Tercer modelo | La curva de log loss muestra el sobreajuste; la configuración importa más que el modelo |
+| `models/05_modelo_regresion_logistica` | Primer modelo y cómo se mide | Entrenar con partidos no comparables arruina las probabilidades; se entrena con mapas entre equipos con 30+ mapas previos |
+| `models/06_modelo_random_forest` | Segundo modelo | Captar relaciones complejas no mejora a la logística |
+| `models/07_modelo_gradient_boosting` | Tercer modelo | La curva de log loss muestra el sobreajuste; la configuración importa más que el modelo |
 | `08_comparacion_y_evaluacion_final` | Comparar, ajustar y evaluar en 2026 | 57.1 % de exactitud en prueba; conclusiones y limitaciones del proyecto |
 
 ## Modelos y por qué se usaron
@@ -110,10 +111,11 @@ pip install -r requirements.txt
 python tests/test_data_loading.py
 python tests/test_features.py
 
-# cuadernillos, en orden (desde la carpeta notebooks/)
+# cuadernillos, en orden: 00 a 04 en notebooks/, 05 a 07 en models/, 08 en notebooks/
 cd notebooks
 python -m nbconvert --to notebook --execute --inplace 00_comprension_de_datos.ipynb
-# … y así hasta 08_comparacion_y_evaluacion_final.ipynb
+# … hasta 04_seleccion_de_variables.ipynb; luego, desde models/, 05 a 07;
+# y por último, desde notebooks/, 08_comparacion_y_evaluacion_final.ipynb
 ```
 
 También se pueden abrir y ejecutar directamente en Jupyter o en PyCharm. Los cuadernillos

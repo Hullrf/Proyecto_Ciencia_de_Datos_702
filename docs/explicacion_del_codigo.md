@@ -29,7 +29,7 @@ tercera celda de código".
 
 | Observación | Qué se hizo | Dónde verlo |
 |---|---|---|
-| 1. Los modelos deben ir en cuadernillos, no en `.joblib` | Se eliminaron los archivos `.joblib` y la carpeta `models/`. Cada modelo tiene ahora su propio cuadernillo, que lo entrena, lo evalúa y lo interpreta: 05 (regresión logística), 06 (Random Forest) y 07 (Gradient Boosting). El 08 los compara y evalúa el modelo final. | Cuadernillos 05 a 08 |
+| 1. Los modelos deben ir en cuadernillos, no en `.joblib` | Se eliminaron los archivos `.joblib`. Ahora la carpeta `models/` contiene un cuadernillo por modelo, que lo entrena, lo evalúa y lo interpreta: 05 (regresión logística), 06 (Random Forest) y 07 (Gradient Boosting). El 08 los compara y evalúa el modelo final. | Cuadernillos 05 a 08 |
 | 2. Explicar cómo se interpretan los gráficos y por qué se eligieron | Debajo de cada gráfico hay un bloque con **Por qué este gráfico**, **Cómo se lee** y **Qué muestra**. | Todos los cuadernillos; Parte 2 de este documento |
 | 3. Simplificar los cuadernillos | De 25 gráficos se pasó a 16. Se quitaron los análisis que repetían una idea ya mostrada (por ejemplo, dos mapas de calor de mapas jugados, el bootstrap, la importancia por permutación previa a la selección y varios gráficos de calibración). El código de cada cuadernillo se escribió de la forma más directa posible. | Todos los cuadernillos |
 | 4. Documento que explique cada fragmento de código | Este documento. | — |
@@ -189,7 +189,7 @@ a 08.
 ## Por qué los modelos están en cuadernillos y no en `.joblib`
 
 Antes, los modelos entrenados se guardaban como archivos `.joblib` (un formato que "congela"
-un objeto de Python en disco). Ahora cada modelo vive en su cuadernillo:
+un objeto de Python en disco). Ahora cada modelo vive en su cuadernillo, y los tres cuadernillos de modelos están en la carpeta `models/`:
 
 - El cuadernillo contiene **todo** lo que define al modelo: los datos que usa, su
   configuración, el entrenamiento y la evaluación. Un archivo `.joblib` es una caja cerrada que
@@ -253,7 +253,7 @@ config["years"]
 
 **Qué hace:** prepara el cuadernillo. Trae las librerías y las funciones propias del proyecto.
 
-- `sys.path.append("..")`: los cuadernillos están en `notebooks/` y las funciones en `src/`, una carpeta más arriba. Esta línea le dice a Python que también busque módulos en la carpeta padre (`..`); sin ella, `from src...` daría error.
+- `sys.path.append("..")`: los cuadernillos están en `notebooks/` (los de los modelos, en `models/`) y las funciones en `src/`, una carpeta más arriba. Esta línea le dice a Python que también busque módulos en la carpeta padre (`..`); sin ella, `from src...` daría error.
 - `import pandas as pd`: pandas es la librería de tablas (DataFrames). `matplotlib.pyplot` es la de gráficos.
 - `from src.config import ...`: trae las rutas del proyecto (`RAW_DIR` = carpeta de datos crudos, `TABLES_DIR` = carpeta donde se guardan tablas) y `load_config`, que lee `config/config.yaml`.
 - `set_style()`: fija un mismo estilo visual para todos los gráficos del proyecto.
@@ -1279,7 +1279,7 @@ load_config()["features"]
 
 ## Cuadernillo 05 — Modelo 1: regresión logística
 
-Archivo: `notebooks/05_modelo_regresion_logistica.ipynb`
+Archivo: `models/05_modelo_regresion_logistica.ipynb`
 
 ### 05.1
 
@@ -1523,7 +1523,7 @@ plt.show()
 
 ## Cuadernillo 06 — Modelo 2: Random Forest
 
-Archivo: `notebooks/06_modelo_random_forest.ipynb`
+Archivo: `models/06_modelo_random_forest.ipynb`
 
 ### 06.1
 
@@ -1616,7 +1616,7 @@ plt.show()
 
 ## Cuadernillo 07 — Modelo 3: Gradient Boosting
 
-Archivo: `notebooks/07_modelo_gradient_boosting.ipynb`
+Archivo: `models/07_modelo_gradient_boosting.ipynb`
 
 ### 07.1
 
