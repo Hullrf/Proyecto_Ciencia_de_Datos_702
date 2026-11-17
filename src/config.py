@@ -8,7 +8,6 @@ CONFIG_PATH = ROOT / "config" / "config.yaml"
 RAW_DIR = ROOT / "data" / "raw"
 INTERIM_DIR = ROOT / "data" / "interim"
 PROCESSED_DIR = ROOT / "data" / "processed"
-MODELS_DIR = ROOT / "models"
 FIGURES_DIR = ROOT / "reports" / "figures"
 TABLES_DIR = ROOT / "reports" / "tables"
 

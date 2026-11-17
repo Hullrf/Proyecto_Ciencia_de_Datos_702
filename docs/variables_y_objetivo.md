@@ -83,9 +83,6 @@ Las estadísticas de jugadores se promedian por equipo en cada mapa (cinco jugad
 | `diff_pistol` | AUC univariado de 0.57, 55 % de valores faltantes y sin aporte dentro de un modelo. |
 | `h2h_games` | AUC de 0.50. Que `h2h_winrate_a` esté vacía ya indica que no hay enfrentamientos previos. |
 
-Quitar estas cinco variables no empeoró la predicción (AUC en 2024: 0.599 con 11 variables
-frente a 0.586–0.596 con 16).
-
 ### Por fuga de datos (nunca se consideraron como variables)
 
 | Información | Motivo |
@@ -122,7 +119,7 @@ Evaluación sobre 886 mapas de 2026, que no se usaron en ninguna decisión del p
 | Logística con una variable (`diff_winrate`) | 0.547 | 0.587 | 0.680 |
 | **Modelo final (Gradient Boosting, 11 variables)** | **0.571** | **0.606** | **0.680** |
 
-El modelo acierta el 57.1 % de los mapas (IC 95 %: 54.0 %–60.4 %): mejor que el azar y algo
+El modelo acierta el 57.1 % de los mapas (IC 95 %: 53.9 %–60.4 %): mejor que el azar y algo
 mejor que las reglas simples en exactitud, aunque en calidad de probabilidades empata con una
 logística de una sola variable. La señal previa al partido existe, pero es modesta y está
 concentrada en la fuerza general del equipo; las demás variables agregan poco sobre ella.
