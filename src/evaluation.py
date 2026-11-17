@@ -17,3 +17,9 @@ def evaluate(y_true, y_proba) -> dict:
         "roc_auc": roc_auc_score(y_true, y_proba),
         "log_loss": log_loss(y_true, y_proba, labels=[0, 1]),
     }
+
+
+def accuracy_interval(accuracy: float, n: int, z: float = 1.96) -> tuple[float, float]:
+    """95 % confidence interval of an accuracy measured on `n` maps (normal approximation)."""
+    half_width = z * np.sqrt(accuracy * (1 - accuracy) / n)
+    return accuracy - half_width, accuracy + half_width
